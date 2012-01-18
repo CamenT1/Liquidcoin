@@ -221,7 +221,7 @@ isEmpty(BOOST_LIB_PATH) {
 isEmpty(BOOST_INCLUDE_PATH) {
     macx:BOOST_INCLUDE_PATH = /opt/local/include
 }
-
+unix:LIBS += -lssl -lcrypto -lboost_system -lboost_filesystem -lboost_program_options -lboost_thread -ldb_cxx
 windows:LIBS += -lws2_32 -lgdi32
 windows:DEFINES += WIN32
 windows:RC_FILE = src/qt/res/bitcoin-qt.rc
