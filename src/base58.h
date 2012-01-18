@@ -244,7 +244,7 @@ class CBitcoinAddress : public CBase58Data
 public:
     bool SetHash160(const uint160& hash160)
     {
-        SetData(fTestNet ? 53 : 133, &hash160, 20); // Liquidcoin addresses start with t
+        SetData(fTestNet ? 53 : 133, &hash160, 20); // Liquidcoin addresses start with v
         return true;
     }
 
@@ -259,7 +259,7 @@ public:
         bool fExpectTestNet = false;
         switch(nVersion)
         {
-            case 127: // Liquidcoin addresses start with t
+            case 133: // Liquidcoin addresses start with v
                 break;
 
             case 111:
