@@ -1345,11 +1345,11 @@ bool CBlock::AcceptBlock()
             return DoS(10, error("AcceptBlock() : contains a non-final transaction"));
 
     // Check that the block chain matches the known block chain up to a checkpoint
-   // if (!fTestNet)
-       // if ((nHeight == 100 && hash != uint256("0xaa6fbbc5b8885797a180c35918971e40d0459fd4299cbcaae7d3b5d551fa7d70")) ||
-         //   (nHeight == 152 && hash != uint256("0x7cf7e64cd5c770cf7315bc767e179a61d68815326c163a16b487639c006c9c70")) ||
-           // (nHeight == 16949 && hash != uint256("0xcaaa6bfff86dae9ecc2afc98c903a4052b2f432791787b1cd711e26fb980f407")))
-          //  return error("AcceptBlock() : rejected by checkpoint lockin at %d", nHeight);
+    if (!fTestNet)
+        if ((nHeight == 100 && hash != uint256("0xd5f4c61632663b5aea17f1ddc96c613828f5c33128722710ed40d0f0c347e516")) ||
+            (nHeight == 2500 && hash != uint256("0x3830bc3df4801a02a176107979030144a78e08e688c4ca4ac8154770f15c9e34")) ||
+            (nHeight == 5000 && hash != uint256("0xfc895f4b4a04aa3a1a5d05d031b109885dcc54b7eada67e0b55da4613c7efc8a")))
+            return error("AcceptBlock() : rejected by checkpoint lockin at %d", nHeight);
 
     printf("Got new block at height %d: %s\n", nHeight, hash.ToString().c_str());
 
